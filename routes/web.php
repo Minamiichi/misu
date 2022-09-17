@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PpdbController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingPageController;
 
@@ -28,6 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
     Route::get('/admin', [DashboardController::class, 'admin'])->name('admin');
 
     Route::middleware(['admin'])->group(function (){
+        Route::resource('ppdb', PpdbController::class);
         Route::resource('user', UserController::class)->only([
             'index', 'edit', 'update', 'destroy'
         ]);

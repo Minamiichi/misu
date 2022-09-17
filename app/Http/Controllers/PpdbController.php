@@ -3,34 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
 
-class LandingPageController extends Controller
+class PpdbController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        return view('pages.landingpage.index');
-    }
-    public function about(Request $request)
-    {
-        return view('pages.landingpage.about');
-    }
-
-    public function ppdb(Request $request){
-
-        $data = User::where('status', 'active');
-
-        return view('pages.landingpage.ppdb.index', compact('data'));
-    }
-
-    public function blog(Request $request){
-
-        return view('pages.landingpage.blog.index');
+        //
     }
 
     /**
@@ -38,10 +21,6 @@ class LandingPageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function details(Request $request){
-        return view('pages.blog.details');
-    }
     public function create()
     {
         //
